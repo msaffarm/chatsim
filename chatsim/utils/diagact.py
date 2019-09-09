@@ -18,4 +18,5 @@ GoodBye = DiagAct(name='GOODBYE',priority=2)
 CantUnderstand = DiagAct(name='CANT_UNDERSTAND',priority=2)
 Other = DiagAct(name='Other',priority=2)
 
-__all__ = ['Greeting', 'Inform', 'Request', 'Confirm', 'RequestAlts', 'Offer', 'Select', 'Affirm']
+__all__ = ['Greeting', 'Inform', 'Request', 'Confirm', 'RequestAlts', 'Offer', 'Select', 'Affirm', 'GoodBye','NotifySuccess',
+'NotifyFailure', 'ThankYou', 'Other', 'Negate']

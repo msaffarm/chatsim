@@ -2,9 +2,9 @@
 
 from collections import namedtuple
 import yaml
-
+import numpy as np
 # Goal
-Goal = namedtuple('Goal', ['slot', 'value', 'metainfo'])
+Goal = namedtuple('Goal', ['slot', 'value', 'type'])
 # User Goal
 UserGoal = namedtuple('UserGoal', ['domain', 'intent', 'goal_list'])
 # Annotation
@@ -17,6 +17,9 @@ def read_user_profile(path):
     with open(path, 'r') as f:
         return yaml.load(f)
 
+def get_random_number(dist = "uniform"):
+	if dist == "uniform":
+		return np.random.rand()
 
 
 # class Annotation(object):
