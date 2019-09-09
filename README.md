@@ -1,1 +1,1 @@
-# Profile-conditioned user-simulator for task-oriented dialgoue generation systems
+# Architecture-agnostic simulation-based evaluation system for task-oriented chatbots
