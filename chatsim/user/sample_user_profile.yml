@@ -1,0 +1,9 @@
+Mansour:
+  polite: 0.9
+  verbose: 0.5
+  misspell_entities: 0.1
+  dont_care: 0.5
+  asks_about_optional_slots: 0.0
+  agenda_size: 0.85
+  inform: 0.1
+  requests_for_options: 0.0
