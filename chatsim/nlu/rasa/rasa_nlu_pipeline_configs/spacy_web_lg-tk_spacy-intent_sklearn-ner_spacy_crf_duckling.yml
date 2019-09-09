@@ -1,0 +1,13 @@
+language: "en"
+
+pipeline:
+- name: "nlp_spacy"
+  model: "en_core_web_lg"
+  case_sensitive: false
+- name: "tokenizer_spacy"
+- name: "intent_featurizer_spacy"
+- name: "intent_classifier_sklearn"
+- name: "ner_spacy"
+- name: "ner_crf"
+- name: "ner_duckling"
+  dimensions: ["time", "number", "amount-of-money", "distance","duration","email","phone-number"]

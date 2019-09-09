@@ -1,0 +1,7 @@
+data:
+  file_name: 'compiled/sim-M-complete.json'
+
+trainer:
+  project_name: 'm2m-m'
+#   config_name: 'spacy_web_md-tk_spacy-intent_sklearn-ner_spacy.yml'
+  config_name: 'default_intent_classifier.yml'
