@@ -1,5 +1,7 @@
 from chatsim.utils import Annotation, DiagAct, Goal, UserGoal
 from random import choice
+
+
 class TemplateNLG(object):
 
     def __init__(self):
@@ -10,17 +12,16 @@ class TemplateNLG(object):
         for annot in annot_list:
             output_text_list.append(self.annot2text(annot))
 
-        return ' '.join(output_text_list).strip()    
+        return ' '.join(output_text_list).strip()
 
     def _get_entity_value_text(self, goal):
         val_text = ''
-        if goal.type=='fixed' or goal.type=='flexible' or goal.type=='open':
+        if goal.type == 'fixed' or goal.type == 'flexible' or goal.type == 'open':
             val_text = str(goal.value[0])
         else:
             val_text = ' or '.join(goal.value)
 
         return val_text
-
 
     def annot2text(self, annotation):
         output_text = ''
@@ -32,14 +33,14 @@ class TemplateNLG(object):
                     entity = goal.slot
                     value = self._get_entity_value_text(goal)
                     if entity == 'num_people':
-                        ent_val_tuples.append(('number of people',value))
+                        ent_val_tuples.append(('number of people', value))
                     elif entity == 'theatre_name':
-                        ent_val_tuples.append(('theater',value))
+                        ent_val_tuples.append(('theater', value))
                     else:
-                        ent_val_tuples.append((entity,value))
-            
-            output_text = ' '.join(['{} is {}'.format(ent,val) for (ent,val) in ent_val_tuples]).strip()
-        
+                        ent_val_tuples.append((entity, value))
+
+            output_text = ' '.join(['{} is {}'.format(ent, val) for (ent, val) in ent_val_tuples]).strip()
+
         if annotation.diagact.name == 'REQUEST':
             temp = 'what is '
             goal = annotation.goal_list[0]
@@ -56,6 +57,5 @@ class TemplateNLG(object):
 
         if annotation.diagact.name == 'AFFIRM':
             output_text = choice(['that is right', 'yes'])
-
 
         return output_text

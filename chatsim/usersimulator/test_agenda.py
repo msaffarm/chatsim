@@ -19,11 +19,10 @@ def main():
     age = Goal(slot='age', value=12, metainfo=None)
     name = Goal(slot='name', value='mansour', metainfo=None)
 
-
-    annot1 = Annotation(diagact=Greeting,goal_list=[age], intent=None, domain=None)
-    annot2 = Annotation(diagact=Greeting,goal_list=[age,name], intent=None, domain=None)
-    annot3 = Annotation(diagact=Greeting,goal_list=[name], intent=None, domain=None)
-    annot4 = Annotation(diagact=Greeting,goal_list=[age,name], intent=None, domain=None)
+    annot1 = Annotation(diagact=Greeting, goal_list=[age], intent=None, domain=None)
+    annot2 = Annotation(diagact=Greeting, goal_list=[age, name], intent=None, domain=None)
+    annot3 = Annotation(diagact=Greeting, goal_list=[name], intent=None, domain=None)
+    annot4 = Annotation(diagact=Greeting, goal_list=[age, name], intent=None, domain=None)
     ag = Agenda()
     ag.push(annot1)
     ag.push(annot2)
@@ -33,6 +32,7 @@ def main():
     print(x)
     ag.remove_annotation(annot1)
     print(ag)
+
 
 if __name__ == '__main__':
     main()

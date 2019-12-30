@@ -1,6 +1,7 @@
 
 
-entities = ['date','time','movie', 'ticket', 'theater']
+entities = ['date', 'time', 'movie', 'ticket', 'theater']
+
 
 class ChatBot():
 
@@ -8,7 +9,7 @@ class ChatBot():
         self.asked_entities = set()
 
     def get_response(self, input_text):
-        
+
         if 'date' in input_text:
             self.asked_entities.add('date')
         if 'time' in input_text:
@@ -22,20 +23,19 @@ class ChatBot():
 
         for ent in entities:
             if ent not in self.asked_entities:
-                if ent=='date':
+                if ent == 'date':
                     return 'what date ?'
-                if ent=='time':
+                if ent == 'time':
                     return 'what time ?'
-                if ent=='movie':
+                if ent == 'movie':
                     return 'what is the movie ?'
-                if ent=='ticket':
+                if ent == 'ticket':
                     return 'how many people ?'
-                if ent=='theater':
+                if ent == 'theater':
                     return 'which theater ?'
-    
+
         if 'yes' in input_text or 'that is right' in input_text:
             return 'purchase confirmed successfully made'
 
-        if len(self.asked_entities)==5:
+        if len(self.asked_entities) == 5:
             return 'Do you confirm ?'
-    
