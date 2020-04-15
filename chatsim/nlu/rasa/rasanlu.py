@@ -24,6 +24,7 @@ DEFAULT_RASA_NLU = CURRENT_DIR / 'rasa_nlu_config.yml'
 RASA_NLU_PIPELINE_DEFAULT_PATH = CURRENT_DIR / 'rasa_nlu_pipeline_configs'
 MODELS_DIR = CURRENT_DIR / 'trained_models'
 
+
 class RasaNLU(object):
 
     def __init__(self):
@@ -64,10 +65,12 @@ class RasaNLU(object):
 
         self.trained_model = trainer.train(training_data)
         logger.info('Persisting model')
-        
+
         project_name = rasa_config['trainer']['project_name']
         model_name = rasa_config['trainer']['config_name']
-        model_directory = trainer.persist(MODELS_DIR.absolute().as_posix(),project_name=project_name,fixed_model_name=model_name)
+        model_directory = trainer.persist(MODELS_DIR.absolute().as_posix(),
+                                          project_name=project_name,
+                                          fixed_model_name=model_name)
         logger.info('Persisted model!')
 
         return model_directory
@@ -87,7 +90,6 @@ class RasaNLU(object):
         self.interpreter = Interpreter.load(model_dir)
         logger.info('Created interpreter with the trained model! Ready of inference!')
 
-
     def read_config(self, config_path: [str, PosixPath]) -> Dict:
         with open(config_path, 'r') as stream:
             try:
@@ -96,13 +98,13 @@ class RasaNLU(object):
                 logger.error(exc)
 
         return config
-    
+
     def get_server_response(self, input_text: str, project_name: str, model_name: str, port: int = 5000) -> Dict:
         url = f'http://127.0.0.1:{port}/parse'
         data = {
-            "q":input_text, 
-            "project":project_name,
-            "model":model_name
+            "q": input_text,
+            "project": project_name,
+            "model": model_name
         }
         response = requests.post(url, data=json.dumps(data))
         json_data = json.loads(response.text)
@@ -146,9 +148,6 @@ class RasaNLU(object):
                 )
 
         return json_data
-    
-        
-
 
 
 def main():

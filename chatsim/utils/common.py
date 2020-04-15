@@ -8,7 +8,7 @@ Goal = namedtuple('Goal', ['slot', 'value', 'type'])
 # User Goal
 UserGoal = namedtuple('UserGoal', ['domain', 'intent', 'goal_list'])
 # Annotation
-Annotation = namedtuple('Annotation', ['diagact','goal_list', 'intent', 'domain'])
+Annotation = namedtuple('Annotation', ['diagact', 'goal_list', 'intent', 'domain'])
 # DiagAct
 DiagAct = namedtuple('DiagAct', ['name', 'priority'])
 
@@ -17,23 +17,24 @@ def read_user_profile(path):
     with open(path, 'r') as f:
         return yaml.load(f)
 
-def get_random_number(dist = "uniform"):
-	if dist == "uniform":
-		return np.random.rand()
+
+def get_random_number(dist="uniform"):
+    if dist == "uniform":
+        return np.random.rand()
 
 
 # class Annotation(object):
 # 	"""
 # 	Attributes:
 # 		- diagact (DialogueAct)
-# 		- goal_slot_list (list[GoalSlot]): 
+# 		- goal_slot_list (list[GoalSlot]):
 # 		- intent (str)
 
 # 	Raises:
 # 		- TypeError: if diagact type is not DialogueAct
 # 		- TypeError: if intent is passed, but its type is not string
 # 	"""
-	
+
 # 	def __init__(self,diagact,goal_slot_list=[],intent=None):
 
 # 		# check the diagact, intent and goal_slot_list types
@@ -72,9 +73,9 @@ def get_random_number(dist = "uniform"):
 # 			s += "Intent=" + str(self.intent) + "\n"
 # 		for gs in self.goal_slot_list:
 # 			s += str(gs) + " "
-		
+
 # 		return s
-	
+
 # 	def __eq__(self,other):
 
 # 		if self.diagact!=other.diagact:
@@ -85,7 +86,7 @@ def get_random_number(dist = "uniform"):
 # 		# if only one of them is empty then they are not equal
 # 		if not self.goal_slot_list or not other.goal_slot_list:
 # 			return False
-		
+
 # 		if len(self.goal_slot_list)!=len(other.goal_slot_list):
 # 			return False
 # 		for gs in self.goal_slot_list:
@@ -97,15 +98,15 @@ def get_random_number(dist = "uniform"):
 # 	@property
 # 	def diagact(self):
 # 		return self._diagact
-	
+
 # 	@property
 # 	def goal_slot_list(self):
 # 		return self._goal_slot_list
-	
+
 # 	@property
 # 	def intent(self):
 # 		return self._intent
-	
+
 # class AnnotationError(Exception):
 # 	def __init__(self,message):
 # 		super().__init__(message)
